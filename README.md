@@ -13,8 +13,8 @@ The following table records the daily UI-to-code conversion results:
 
 | Date | Original UI Design | Generated Code Result | Source |
 |------|-------------------|----------------------|--------|
-| 2023-03-06 | [Original Design Link] | [Code Implementation Result Link] | [@dingyi](https://x.com/dingyi/status/1897253014806880540) |
-| 2023-03-06 | [Original Design Link] | [Code Implementation Result Link] | [@Tanjim38](https://x.com/Tanjim38/status/1897205862974021780) |
+| 2023-03-06 | ![image](https://github.com/user-attachments/assets/5e9a0bcc-09ab-4150-9723-ba37642f6233) | ![image](https://github.com/user-attachments/assets/1c76bade-d147-4dee-abf2-5401a72dbc8e) | [@dingyi](https://x.com/dingyi/status/1897253014806880540) |
+| 2023-03-07 | ![image](https://github.com/user-attachments/assets/dd93c443-feb4-44a4-b771-838c37b90bc0)| ![image](https://github.com/user-attachments/assets/48feadf8-47f0-4936-8d93-3ed9363cf50f) | [@Tanjim38](https://x.com/Tanjim38/status/1897205862974021780) |
 
 ## Prompt
 
