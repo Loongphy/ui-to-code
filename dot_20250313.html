@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot Pattern Background</title>
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .content-mask {
+            background: white;
+            box-shadow: 0 0 30px 30px white;
+        }
+    </style>
+</head>
+<body x-data="{
+    dotSize: 1,
+    spacing: 8,
+    offset: 4,
+    opacity: 0.8,
+    rotation: 45,
+    color: '226, 232, 240',
+    getDotPattern() {
+        return {
+            backgroundImage: `radial-gradient(circle at ${this.dotSize}px ${this.dotSize}px, rgb(${this.color}, ${this.opacity}) ${this.dotSize}px, transparent ${this.dotSize}px)`,
+            backgroundSize: `${this.spacing}px ${this.spacing}px`,
+            backgroundPosition: `${this.offset}px ${this.offset}px`,
+            transform: `rotate(${this.rotation}deg)`,
+            transformOrigin: '0 0'
+        }
+    }
+}">
+    <!-- 点阵背景 -->
+    <div class="fixed inset-0 -z-10" :style="getDotPattern()"></div>
+    
+    <!-- 调试面板 -->
+    <div class="fixed top-4 right-4 bg-white/95 backdrop-blur-sm p-6 rounded-lg shadow-lg w-80 space-y-4 z-50">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">点阵样式调整</h3>
+        
+        <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">
+                点大小 (<span x-text="dotSize"></span>px)
+                <input type="range" x-model="dotSize" min="0.5" max="3" step="0.5" class="w-full">
+            </label>
+        </div>
+
+        <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">
+                点间距 (<span x-text="spacing"></span>px)
+                <input type="range" x-model="spacing" min="4" max="24" step="1" class="w-full">
+            </label>
+        </div>
+
+        <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">
+                交错偏移 (<span x-text="offset"></span>px)
+                <input type="range" x-model="offset" min="0" max="12" step="1" class="w-full">
+            </label>
+        </div>
+
+        <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">
+                不透明度 (<span x-text="opacity"></span>)
+                <input type="range" x-model="opacity" min="0" max="1" step="0.1" class="w-full">
+            </label>
+        </div>
+
+        <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">
+                旋转角度 (<span x-text="rotation"></span>°)
+                <input type="range" x-model="rotation" min="0" max="360" step="5" class="w-full">
+            </label>
+        </div>
+
+        <div class="pt-4 border-t">
+            <p class="text-xs text-gray-500">当前CSS值：</p>
+            <pre class="text-xs bg-gray-50 p-2 rounded mt-2 overflow-x-auto">
+                <code x-text="'background-image: ' + getDotPattern().backgroundImage + '\nbackground-size: ' + getDotPattern().backgroundSize + '\nbackground-position: ' + getDotPattern().backgroundPosition + '\ntransform: ' + getDotPattern().transform"></code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="relative min-h-screen flex items-center justify-center p-8">
+        <div class="max-w-4xl content-mask rounded-2xl">
+            <div class="p-12">
+                <h1 class="text-4xl font-bold text-gray-900 mb-6">点状背景演示</h1>
+                <p class="text-lg text-gray-700 mb-8">使用滑块调整点阵的大小、间距、透明度和旋转角度。调整完成后，可以复制下方的 CSS 代码。</p>
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">特点</h2>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center">
+                            <span class="mr-2">•</span>
+                            <span>使用 radial-gradient 创建点状图案</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2">•</span>
+                            <span>完全可自定义的样式</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2">•</span>
+                            <span>响应式设计</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2">•</span>
+                            <span>轻量级实现</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
